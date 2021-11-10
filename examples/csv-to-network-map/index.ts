@@ -25,17 +25,17 @@ Papa.parse<{ name: string; acronym: string; subject_terms: string }>("./data.csv
   header: true,
   delimiter: ",",
   complete: (results) => {
+    console.log('results', results);
     let graph: Graph = new Graph();
 
     // 2. Build the bipartite graph:
     results.data.forEach((line) => {
       const institution = line.name;
-      const acronym = line.acronym;
 
       // Create the institution node:
       graph.addNode(institution, {
         nodeType: "institution",
-        label: [acronym, institution].filter((s) => !!s).join(" - "),
+        label: institution,
       });
 
       // Extract subjects list:

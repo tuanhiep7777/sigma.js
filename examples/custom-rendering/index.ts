@@ -58,6 +58,7 @@ graph.addEdge("Suzan", "Kouign Amann", { type: "arrow", label: "eats", size: 5 }
 
 graph.nodes().forEach((node, i) => {
   const angle = (i * 2 * Math.PI) / graph.order;
+  console.log('graph', graph);
   graph.setNodeAttribute(node, "x", 100 * Math.cos(angle));
   graph.setNodeAttribute(node, "y", 100 * Math.sin(angle));
 });
